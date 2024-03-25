@@ -1,142 +1,142 @@
 {
   "dogs": [
     {
-      "name": "Jeanie",
-      "image": "/assets/corgi.png",
-      "description": "Polonium Tools Account OCR Fitness website peccatus Garden",
+      "name": "Gisselle",
+      "image": "/assets/cowardly.png",
+      "description": "Carolina Chrysler transmit Rustic mobile considering Officer matrix",
       "isFavorite": false,
       "id": 0
     },
     {
-      "name": "Josianne",
-      "image": "/assets/blue-heeler.png",
-      "description": "lumen microchip Lilian finally Dynamic variant reboot",
+      "name": "Orin",
+      "image": "/assets/chihuahua.avif",
+      "description": "Electronic Latin East Handcrafted pink 24/7 Garden Intranet",
       "isFavorite": false,
       "id": 1
     },
     {
-      "name": "Eliza",
-      "image": "/assets/blue-heeler.png",
-      "description": "Soul Reggae Bacon North encourage",
-      "isFavorite": false,
+      "name": "Beryl",
+      "image": "/assets/chihuahua.avif",
+      "description": "Accountability Holmium Operative Nissan Northeast Dorset South Wooden",
+      "isFavorite": true,
       "id": 2
     },
     {
-      "name": "Deion",
-      "image": "/assets/dalmation.png",
-      "description": "Louisiana Diesel male Internal Directives ringed female",
+      "name": "Tanya",
+      "image": "/assets/chihuahua.avif",
+      "description": "navigating Frozen Gender Fantastic Ytterbium Rubber solid",
       "isFavorite": true,
       "id": 3
     },
     {
-      "name": "Jane",
-      "image": "/assets/boxer.png",
-      "description": "Creative male auxiliary Tugrik Frozen invoice rib",
-      "isFavorite": false,
+      "name": "Shawn",
+      "image": "/assets/blue-heeler.png",
+      "description": "initiative redundant Andorra North helplessly",
+      "isFavorite": true,
       "id": 4
     },
     {
-      "name": "Darlene",
-      "image": "/assets/cowardly.png",
-      "description": "Diesel wireless Southwest pungent adicio bandwidth optical Copper",
-      "isFavorite": false,
+      "name": "Wava",
+      "image": "/assets/chihuahua.avif",
+      "description": "Account capacitor female withdrawal Islands",
+      "isFavorite": true,
       "id": 5
     },
     {
-      "name": "Shane",
-      "image": "/assets/dalmation.png",
-      "description": "Pop including Herefordshire CLI brainwash Smart Florida Horizontal",
+      "name": "Rosalinda",
+      "image": "/assets/chihuahua.avif",
+      "description": "Grocery Dollar Carbon Gasoline Steel male Ball",
       "isFavorite": true,
       "id": 6
     },
     {
-      "name": "Zakary",
-      "image": "/assets/corgi.png",
-      "description": "management beside South Niobium Minivan",
+      "name": "Louie",
+      "image": "/assets/dalmation.png",
+      "description": "azure Coupe Investment pixel EXE target Helium Bespoke",
       "isFavorite": true,
       "id": 7
     },
     {
-      "name": "Valentine",
-      "image": "/assets/chihuahua.avif",
-      "description": "yellow Consultant encoding Afghanistan markets",
-      "isFavorite": true,
+      "name": "Christy",
+      "image": "/assets/dalmation.png",
+      "description": "Loan definition Bike TLS Hybrid",
+      "isFavorite": false,
       "id": 8
     },
     {
-      "name": "Brittany",
-      "image": "/assets/corgi.png",
-      "description": "teal Gorgeous copy Representative Guadeloupe intermediate SUV Principal",
+      "name": "Brandt",
+      "image": "/assets/chihuahua.avif",
+      "description": "New hastily Rubber concept Qatar",
       "isFavorite": true,
       "id": 9
     },
     {
-      "name": "Milo",
-      "image": "/assets/corgi.png",
-      "description": "parenting cultura Hat Concrete Agent",
+      "name": "Humberto",
+      "image": "/assets/boxer.png",
+      "description": "moderator Manager Metal quantifying compressing",
       "isFavorite": true,
       "id": 10
     },
     {
-      "name": "Cruz",
-      "image": "/assets/chihuahua.avif",
-      "description": "transmit bewitched Fiat man Gloucestershire",
-      "isFavorite": true,
+      "name": "Lilian",
+      "image": "/assets/boxer.png",
+      "description": "SMS purple model Customer array which Eritrea",
+      "isFavorite": false,
       "id": 11
     },
     {
-      "name": "Mohamed",
-      "image": "/assets/dalmation.png",
-      "description": "Gasoline Rubber Southwest Industrial Ouguiya",
-      "isFavorite": false,
+      "name": "Mina",
+      "image": "/assets/boxer.png",
+      "description": "SUV elaborate further Chips wetly",
+      "isFavorite": true,
       "id": 12
     },
     {
-      "name": "Tanner",
-      "image": "/assets/dalmation.png",
-      "description": "red boohoo quantifying down Consultant Small Practical",
-      "isFavorite": false,
+      "name": "Efren",
+      "image": "/assets/corgi.png",
+      "description": "Gasoline Southeast Street Volkswagen though South Industrial brr",
+      "isFavorite": true,
       "id": 13
     },
     {
-      "name": "Arturo",
-      "image": "/assets/corgi.png",
-      "description": "parsing PNG China Concrete salmon toolset Hybrid",
-      "isFavorite": false,
+      "name": "Astrid",
+      "image": "/assets/boxer.png",
+      "description": "Southeast withdrawal despite Integrated ivory Mouse posh Car",
+      "isFavorite": true,
       "id": 14
     },
     {
-      "name": "Bernardo",
-      "image": "/assets/dalmation.png",
-      "description": "withdrawal Salad Games Helena enhance methodologies Coupe Home",
+      "name": "Kyleigh",
+      "image": "/assets/cowardly.png",
+      "description": "Northeast Lake Southwest Algerian West Jaguar callide",
       "isFavorite": false,
       "id": 15
     },
     {
-      "name": "Carissa",
-      "image": "/assets/dalmation.png",
-      "description": "Southwest World withdrawal Volkswagen Interactions Generic Diesel quintuple",
+      "name": "Rebeca",
+      "image": "/assets/chihuahua.avif",
+      "description": "Wagon reign Mandatory Administrator Pickup",
       "isFavorite": false,
       "id": 16
     },
     {
-      "name": "Santino",
-      "image": "/assets/blue-heeler.png",
-      "description": "Plastic email Technician diagnosis Peso East synthesizing",
+      "name": "Ambrose",
+      "image": "/assets/chihuahua.avif",
+      "description": "capacitor spokeswoman Northeast timeline streamline Hampshire surprisingly",
       "isFavorite": true,
       "id": 17
     },
     {
-      "name": "Avery",
-      "image": "/assets/chihuahua.avif",
-      "description": "Producer purple Bacon over superb",
+      "name": "Annabelle",
+      "image": "/assets/corgi.png",
+      "description": "backing Hat foreground efficient furthermore Trans Chile",
       "isFavorite": false,
       "id": 18
     },
     {
-      "name": "Unique",
-      "image": "/assets/corgi.png",
-      "description": "Iridium Dynamic hmph Dollar virtual recontextualize Wooden eek",
+      "name": "Jermain",
+      "image": "/assets/cowardly.png",
+      "description": "ciminatio blockchains blue Operations Recumbent",
       "isFavorite": false,
       "id": 19
     }

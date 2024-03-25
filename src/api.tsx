@@ -8,9 +8,13 @@ const getAllDogs = (): Promise<Dog[]> =>
 const postDog = () => {
   // fill out method
 };
-const deleteDogRequest = () => {
-  // fill out method
-};
+const deleteDogRequest = (dogId: number) =>
+  fetch(`${baseUrl}/dogs/${dogId}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+    },
+  });
 
 const patchFavoriteForDog = (
   dogId: number,
