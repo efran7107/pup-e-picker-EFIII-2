@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { useDogs } from "./providers/DogProvidor";
+import { Requests } from "../api";
 
 export const Section = ({
   label,
@@ -10,10 +11,6 @@ export const Section = ({
   children: ReactNode;
 }) => {
   const { dogs } = useDogs();
-  console.log(
-    dogs.filter((dogs) => dogs.isFavorite === true),
-    dogs.filter((dogs) => dogs.isFavorite === false)
-  );
 
   return (
     <section id="main-section">
