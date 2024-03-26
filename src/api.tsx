@@ -5,9 +5,15 @@ const baseUrl = "http://localhost:3000";
 const getAllDogs = (): Promise<Dog[]> =>
   fetch(`${baseUrl}/dogs`).then((dogs) => dogs.json());
 
-const postDog = () => {
-  // fill out method
-};
+const postDog = (newDog: Omit<Dog, "id">) =>
+  fetch(`${baseUrl}/dogs`, {
+    body: JSON.stringify(newDog),
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+
 const deleteDogRequest = (dogId: number) =>
   fetch(`${baseUrl}/dogs/${dogId}`, {
     method: "DELETE",

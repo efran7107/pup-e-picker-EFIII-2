@@ -16,6 +16,7 @@ type TDogProvider = {
   isLoading: boolean;
   updateDog: (update: UpdateSwitch, dogId: number) => void;
   filterDogs: (filter: DogFilter, dogs: Dog[]) => void;
+  addDogs: (newDog: Dog) => void;
   createDog: boolean;
 };
 
@@ -80,13 +81,7 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
         update === "like" ? true : false
       ).then((res) => {
         if (!res.ok) {
-          setDogs(
-            dogs.map((dog) =>
-              dog.id === dogId
-                ? { ...dog, isFavorite: update === "like" ? false : true }
-                : dog
-            )
-          );
+          setDogs(dogs);
         } else return;
       });
     } else {
@@ -102,6 +97,17 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const addDogs = (newDog: Dog) => {
+    dogs.push(newDog);
+    filterDogs("all", dogs);
+    Requests.postDog(newDog).then((res) => {
+      if (!res.ok) {
+        dogs.pop();
+        setDogs(dogs);
+      } else return;
+    });
+  };
+
   return (
     <DogContext.Provider
       value={{
@@ -110,6 +116,7 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
         isLoading,
         updateDog,
         filterDogs,
+        addDogs,
         createDog,
       }}
     >

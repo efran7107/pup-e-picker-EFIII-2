@@ -1,45 +1,24 @@
 {
   "dogs": [
     {
-      "name": "Gisselle",
-      "image": "/assets/cowardly.png",
-      "description": "Carolina Chrysler transmit Rustic mobile considering Officer matrix",
-      "isFavorite": false,
-      "id": 0
-    },
-    {
-      "name": "Orin",
-      "image": "/assets/chihuahua.avif",
-      "description": "Electronic Latin East Handcrafted pink 24/7 Garden Intranet",
-      "isFavorite": false,
-      "id": 1
-    },
-    {
-      "name": "Beryl",
-      "image": "/assets/chihuahua.avif",
-      "description": "Accountability Holmium Operative Nissan Northeast Dorset South Wooden",
-      "isFavorite": true,
-      "id": 2
-    },
-    {
       "name": "Tanya",
       "image": "/assets/chihuahua.avif",
       "description": "navigating Frozen Gender Fantastic Ytterbium Rubber solid",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 3
     },
     {
       "name": "Shawn",
       "image": "/assets/blue-heeler.png",
       "description": "initiative redundant Andorra North helplessly",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 4
     },
     {
       "name": "Wava",
       "image": "/assets/chihuahua.avif",
       "description": "Account capacitor female withdrawal Islands",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 5
     },
     {
