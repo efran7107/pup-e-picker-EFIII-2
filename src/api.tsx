@@ -2,8 +2,7 @@ import { Dog } from "./types";
 
 const baseUrl = "http://localhost:3000";
 
-const getAllDogs = (): Promise<Dog[]> =>
-  fetch(`${baseUrl}/dogs`).then((dogs) => dogs.json());
+const getAllDogs = () => fetch(`${baseUrl}/dogs`).then((dogs) => dogs.json());
 
 const postDog = (newDog: Omit<Dog, "id">) =>
   fetch(`${baseUrl}/dogs`, {

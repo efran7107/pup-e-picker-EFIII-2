@@ -39,7 +39,7 @@
       "name": "Christy",
       "image": "/assets/dalmation.png",
       "description": "Loan definition Bike TLS Hybrid",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 8
     },
     {
@@ -67,7 +67,7 @@
       "name": "Mina",
       "image": "/assets/boxer.png",
       "description": "SUV elaborate further Chips wetly",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 12
     },
     {
@@ -88,14 +88,14 @@
       "name": "Kyleigh",
       "image": "/assets/cowardly.png",
       "description": "Northeast Lake Southwest Algerian West Jaguar callide",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 15
     },
     {
       "name": "Rebeca",
       "image": "/assets/chihuahua.avif",
       "description": "Wagon reign Mandatory Administrator Pickup",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 16
     },
     {

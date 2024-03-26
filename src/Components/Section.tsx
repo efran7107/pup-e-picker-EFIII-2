@@ -1,6 +1,7 @@
-import { BaseSyntheticEvent, ReactNode } from "react";
+import { ReactNode } from "react";
 import { useDogs } from "./providers/DogProvidor";
 import { DogFilter } from "../types";
+import toast from "react-hot-toast";
 
 export const Section = ({
   label,
@@ -10,22 +11,11 @@ export const Section = ({
   label: string;
   children: ReactNode;
 }) => {
-  const { dogs, filterDogs } = useDogs();
+  const { dogs, filterDogs, dogFilter } = useDogs();
 
-  const setActive = (
-    target: EventTarget & HTMLElement,
-    isActive: boolean,
-    filter: DogFilter
-  ) => {
-    if (isActive) {
-      target.classList.remove("active");
-      filterDogs("all", dogs);
-    } else {
-      if (document.querySelectorAll(".active").length > 0)
-        document.querySelectorAll(".active")[0].classList.remove("active");
-      target.classList.add("active");
-      filterDogs(filter, dogs);
-    }
+  const setActive = (filter: DogFilter) => {
+    if (dogFilter !== filter) filterDogs(filter);
+    else filterDogs("all");
   };
 
   return (
@@ -35,44 +25,32 @@ export const Section = ({
         <div className="selectors">
           {/* This should display the favorited count */}
           <div
-            className={`selector`}
-            onClick={(e) => {
-              setActive(
-                e.currentTarget,
-                e.currentTarget.classList.contains("active"),
-                "liked"
-              );
-              alert("click favorited");
+            className={`selector ${dogFilter === "liked" && "active"}`}
+            onClick={() => {
+              setActive("liked");
+              toast("click favorited");
             }}
           >
-            favorited ( {dogs.filter((dogs) => dogs.isFavorite === true).length}{" "}
+            favorited ( {dogs.filter((dogs) => dogs.isFavorite === true).length}
             )
           </div>
 
           {/* This should display the unfavorited count */}
           <div
-            className={`selector`}
-            onClick={(e) => {
-              setActive(
-                e.currentTarget,
-                e.currentTarget.classList.contains("active"),
-                "disliked"
-              );
-              alert("click unfavorited");
+            className={`selector ${dogFilter === "disliked" && "active"}`}
+            onClick={() => {
+              setActive("disliked");
+              toast("click unfavorited");
             }}
           >
-            unfavorited ({" "}
+            unfavorited (
             {dogs.filter((dogs) => dogs.isFavorite === false).length} )
           </div>
           <div
-            className={`selector`}
-            onClick={(e) => {
-              setActive(
-                e.currentTarget,
-                e.currentTarget.classList.contains("active"),
-                "create"
-              );
-              alert("clicked create dog");
+            className={`selector ${dogFilter === "create" && "active"}`}
+            onClick={() => {
+              setActive("create");
+              toast("click create dog");
             }}
           >
             create dog
