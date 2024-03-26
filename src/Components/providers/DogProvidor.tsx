@@ -42,26 +42,23 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
 
   const filterDogs = (filter: DogFilter, dogs: Dog[]) => {
     setDogs(dogs);
+    setFilter(filter);
     switch (filter) {
       case "liked":
         setDogFilterd(dogs.filter((dog) => dog.isFavorite === true));
         setCreateDog(false);
-        setFilter(filter);
         break;
       case "disliked":
         setDogFilterd(dogs.filter((dog) => dog.isFavorite === false));
         setCreateDog(false);
-        setFilter(filter);
         break;
       case "create":
         setDogFilterd([]);
         setCreateDog(true);
-        setFilter(filter);
         break;
       case "all":
         setDogFilterd(dogs);
         setCreateDog(false);
-        setFilter(filter);
         break;
     }
   };
