@@ -7,17 +7,19 @@ import {
 } from "react";
 import { Dog, DogFilter } from "../../types";
 import { Requests } from "../../api";
+import toast from "react-hot-toast";
 
-type UpdateSwitch = "like" | "dislike" | "delete";
+type UpdateSwitch = "like" | "dislike";
 
 type TDogProvider = {
   dogs: Dog[];
-  dogsFiltered: Dog[];
   isLoading: boolean;
   updateDog: (update: UpdateSwitch, dogId: number) => void;
-  filterDogs: (filter: DogFilter, dogs: Dog[]) => void;
-  addDogs: (newDog: Dog) => void;
+  addDog: (newDog: Dog) => void;
+  deleteDog: (dogId: number) => void;
+  filterDogs: (filter: DogFilter) => void;
   createDog: boolean;
+  dogFilter: DogFilter;
 };
 
 const DogContext = createContext<TDogProvider>({} as TDogProvider);
@@ -25,83 +27,68 @@ const DogContext = createContext<TDogProvider>({} as TDogProvider);
 export const DogProvider = ({ children }: { children: ReactNode }) => {
   const [dogs, setDogs] = useState<Dog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [dogsFiltered, setDogFilterd] = useState<Dog[]>([]);
   const [createDog, setCreateDog] = useState(false);
-  const [filter, setFilter] = useState<DogFilter>("all");
+  const [dogFilter, setDogFilter] = useState<DogFilter>("all");
 
   const refetch = () =>
     Requests.getAllDogs().then((dogs) => {
+      setIsLoading(true);
       setDogs(dogs);
-      setDogFilterd(dogs);
     });
 
   useEffect(() => {
-    setIsLoading(true);
     refetch().then(() => setIsLoading(false));
   }, []);
 
-  const filterDogs = (filter: DogFilter, dogs: Dog[]) => {
-    setDogs(dogs);
-    setFilter(filter);
-    switch (filter) {
-      case "liked":
-        setDogFilterd(dogs.filter((dog) => dog.isFavorite === true));
-        setCreateDog(false);
-        break;
-      case "disliked":
-        setDogFilterd(dogs.filter((dog) => dog.isFavorite === false));
-        setCreateDog(false);
-        break;
-      case "create":
-        setDogFilterd([]);
-        setCreateDog(true);
-        break;
-      case "all":
-        setDogFilterd(dogs);
-        setCreateDog(false);
-        break;
+  const filterDogs = (filter: DogFilter) => {
+    setDogFilter(filter);
+    if (filter !== "create") {
+      setCreateDog(false);
+    } else {
+      setCreateDog(true);
     }
   };
 
   const updateDog = (update: UpdateSwitch, dogId: number) => {
-    if (update !== "delete") {
-      filterDogs(
-        filter,
-        dogs.map((dog) =>
-          dog.id === dogId
-            ? { ...dog, isFavorite: update === "like" ? true : false }
-            : dog
-        )
-      );
-      Requests.patchFavoriteForDog(
-        dogId,
-        update === "like" ? true : false
-      ).then((res) => {
-        if (!res.ok) {
-          setDogs(dogs);
-        } else return;
-      });
-    } else {
-      filterDogs(
-        filter,
-        dogs.filter((dog) => dog.id !== dogId)
-      );
-      Requests.deleteDogRequest(dogId).then((res) => {
+    setDogs(
+      dogs.map((dog) =>
+        dog.id === dogId
+          ? { ...dog, isFavorite: update === "like" ? true : false }
+          : dog
+      )
+    );
+    Requests.patchFavoriteForDog(dogId, update === "like" ? true : false).then(
+      (res) => {
+        setIsLoading(true);
         if (!res.ok) {
           setDogs(dogs);
         }
-      });
-    }
+        setIsLoading(false);
+      }
+    );
   };
 
-  const addDogs = (newDog: Dog) => {
-    dogs.push(newDog);
-    filterDogs("all", dogs);
+  const addDog = (newDog: Dog) => {
+    setDogs([...dogs, newDog]);
     Requests.postDog(newDog).then((res) => {
+      setIsLoading(true);
       if (!res.ok) {
-        dogs.pop();
         setDogs(dogs);
-      } else return;
+      }
+      setIsLoading(false);
+    });
+  };
+
+  const deleteDog = (dogId: number) => {
+    setDogs(dogs.filter((dog) => dog.id !== dogId));
+    Requests.deleteDogRequest(dogId).then((res) => {
+      setIsLoading(true);
+      if (!res.ok) {
+        setDogs(dogs);
+      } else {
+        toast("DogCreated");
+      }
+      setIsLoading(false);
     });
   };
 
@@ -109,12 +96,13 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
     <DogContext.Provider
       value={{
         dogs,
-        dogsFiltered,
         isLoading,
         updateDog,
+        addDog,
+        deleteDog,
         filterDogs,
-        addDogs,
         createDog,
+        dogFilter,
       }}
     >
       {children}

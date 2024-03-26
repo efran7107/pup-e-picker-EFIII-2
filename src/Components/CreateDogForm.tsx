@@ -6,7 +6,7 @@ import { Dog } from "../types";
 export const CreateDogForm = () =>
   // no props allowed
   {
-    const { dogs, createDog, addDogs } = useDogs();
+    const { dogs, createDog, isLoading, addDog, filterDogs } = useDogs();
 
     const [selectedImage, setSelectedImage] = useState(dogPictures.BlueHeeler);
     const [dogObj, setDogObj] = useState<Dog>({
@@ -32,11 +32,9 @@ export const CreateDogForm = () =>
                 description: "",
                 isFavorite: false,
               });
-              document
-                .querySelectorAll(".active")[0]
-                .classList.remove("active");
 
-              addDogs({ ...dogObj, id: dogs[dogs.length - 1].id + 1 });
+              addDog({ ...dogObj, id: dogs[dogs.length - 1].id + 1 });
+              filterDogs("all");
             }}
           >
             <h4>Create a New Dog</h4>
@@ -46,6 +44,8 @@ export const CreateDogForm = () =>
               onChange={(e) => {
                 setDogObj({ ...dogObj, name: e.target.value });
               }}
+              disabled={isLoading}
+              value={dogObj.name}
             />
             <label htmlFor="description">Dog Description</label>
             <textarea
@@ -56,6 +56,8 @@ export const CreateDogForm = () =>
               onChange={(e) => {
                 setDogObj({ ...dogObj, description: e.target.value });
               }}
+              disabled={isLoading}
+              value={dogObj.description}
             ></textarea>
             <label htmlFor="picture">Select an Image</label>
             <select
@@ -65,6 +67,7 @@ export const CreateDogForm = () =>
                 setDogObj({ ...dogObj, image: e.target.value });
               }}
               value={selectedImage}
+              disabled={isLoading}
             >
               {Object.entries(dogPictures).map(([label, pictureValue]) => {
                 return (
@@ -74,7 +77,7 @@ export const CreateDogForm = () =>
                 );
               })}
             </select>
-            <input type="submit" value="submit" />
+            <input type="submit" value="submit" disabled={isLoading} />
           </form>
         )}
       </>
