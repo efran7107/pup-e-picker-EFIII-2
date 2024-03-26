@@ -25,7 +25,9 @@ export const Section = ({
         <div className="selectors">
           {/* This should display the favorited count */}
           <div
-            className={`selector ${dogFilter === "liked" && "active"}`}
+            className={`selector ${
+              !dogFilter ? "" : dogFilter === "liked" ? "active" : ""
+            }`}
             onClick={() => {
               setActive("liked");
               toast("click favorited");
@@ -37,7 +39,9 @@ export const Section = ({
 
           {/* This should display the unfavorited count */}
           <div
-            className={`selector ${dogFilter === "disliked" && "active"}`}
+            className={`selector ${
+              !dogFilter ? "" : dogFilter === "disliked" ? "active" : ""
+            }`}
             onClick={() => {
               setActive("disliked");
               toast("click unfavorited");
@@ -47,7 +51,9 @@ export const Section = ({
             {dogs.filter((dogs) => dogs.isFavorite === false).length} )
           </div>
           <div
-            className={`selector ${dogFilter === "create" && "active"}`}
+            className={`selector ${
+              !dogFilter ? "" : dogFilter === "create" ? "active" : ""
+            }`}
             onClick={() => {
               setActive("create");
               toast("click create dog");

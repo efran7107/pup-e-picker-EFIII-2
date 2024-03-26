@@ -37,7 +37,7 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
     });
 
   useEffect(() => {
-    refetch().then(() => setIsLoading(false));
+    refetch().finally(() => setIsLoading(false));
   }, []);
 
   const filterDogs = (filter: DogFilter) => {
@@ -57,39 +57,46 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
           : dog
       )
     );
-    Requests.patchFavoriteForDog(dogId, update === "like" ? true : false).then(
-      (res) => {
+    Requests.patchFavoriteForDog(dogId, update === "like" ? true : false)
+      .then((res) => {
         setIsLoading(true);
         if (!res.ok) {
           setDogs(dogs);
         }
+      })
+      .finally(() => {
         setIsLoading(false);
-      }
-    );
+      });
   };
 
   const addDog = (newDog: Dog) => {
     setDogs([...dogs, newDog]);
-    Requests.postDog(newDog).then((res) => {
-      setIsLoading(true);
-      if (!res.ok) {
-        setDogs(dogs);
-      }
-      setIsLoading(false);
-    });
+    Requests.postDog(newDog)
+      .then((res) => {
+        setIsLoading(true);
+        if (!res.ok) {
+          setDogs(dogs);
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const deleteDog = (dogId: number) => {
     setDogs(dogs.filter((dog) => dog.id !== dogId));
-    Requests.deleteDogRequest(dogId).then((res) => {
-      setIsLoading(true);
-      if (!res.ok) {
-        setDogs(dogs);
-      } else {
-        toast("DogCreated");
-      }
-      setIsLoading(false);
-    });
+    Requests.deleteDogRequest(dogId)
+      .then((res) => {
+        setIsLoading(true);
+        if (!res.ok) {
+          setDogs(dogs);
+        } else {
+          toast("DogCreated");
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (

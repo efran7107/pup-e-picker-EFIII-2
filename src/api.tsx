@@ -2,8 +2,9 @@ import { Dog } from "./types";
 
 const baseUrl = "http://localhost:3000";
 
-const getAllDogs = () => fetch(`${baseUrl}/dogs`).then((dogs) => dogs.json());
-
+const getAllDogs = () => {
+  return fetch(`${baseUrl}/dogs`).then((dogs) => dogs.json() as Promise<Dog[]>);
+};
 const postDog = (newDog: Omit<Dog, "id">) =>
   fetch(`${baseUrl}/dogs`, {
     body: JSON.stringify(newDog),
@@ -21,10 +22,7 @@ const deleteDogRequest = (dogId: number) =>
     },
   });
 
-const patchFavoriteForDog = (
-  dogId: number,
-  isFav: boolean
-): Promise<Response> =>
+const patchFavoriteForDog = (dogId: number, isFav: boolean) =>
   fetch(`${baseUrl}/dogs/${dogId}`, {
     method: "PATCH",
     headers: {
