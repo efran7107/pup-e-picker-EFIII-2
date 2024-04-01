@@ -1,109 +1,120 @@
 import {
-	ReactNode,
-	createContext,
-	useContext,
-	useEffect,
-	useState
-} from 'react';
-import { Dog, DogFilter } from '../../types';
-import { Requests } from '../../api';
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { Dog, DogTab } from "../../types";
+import { Requests } from "../../api";
+import toast from "react-hot-toast";
 
-type UpdateSwitch = 'like' | 'dislike';
+type UpdateSwitch = "like" | "dislike";
 
 type TDogProvider = {
-	dogs: Dog[];
-	isLoading: boolean;
-	updateFilter: (filter: DogFilter) => void;
-	updateDog: (update: UpdateSwitch, dogId: number) => void;
-	addDog: (newDog: Dog) => void;
-	deleteDog: (dogId: number) => void;
-	dogFilter: DogFilter;
+  dogs: Dog[];
+  isLoading: boolean;
+  dogTab: DogTab;
+  updateTab: (filter: DogTab) => void;
+  updateDog: (update: UpdateSwitch, dogId: number) => void;
+  addDog: (newDog: Omit<Dog, "id">) => void;
+  deleteDog: (dogId: number) => void;
 };
 
 const DogContext = createContext<TDogProvider>({} as TDogProvider);
 
 export const DogProvider = ({ children }: { children: ReactNode }) => {
-	const [dogs, setDogs] = useState<Dog[]>([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const [dogFilter, setDogFilter] = useState<DogFilter>('all');
+  const [dogs, setDogs] = useState<Dog[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [dogTab, setDogTab] = useState<DogTab>("all");
 
-	const updateFilter = (filter: DogFilter) => {
-		if (filter !== dogFilter) setDogFilter(filter);
-		else setDogFilter('all');
-	};
+  const updateTab = (filter: DogTab) => {
+    if (filter !== dogTab) setDogTab(filter);
+    else setDogTab("all");
+  };
 
-	const refetch = () =>
-		Requests.getAllDogs().then((dogs) => {
-			setIsLoading(true);
-			setDogs(dogs);
-		});
+  const refetch = () => {
+    setIsLoading(true);
+    Requests.getAllDogs()
+      .then((dogs) => {
+        setDogs(dogs);
+      })
+      .finally(() => setIsLoading(false));
+  };
 
-	useEffect(() => {
-		refetch().finally(() => setIsLoading(false));
-	}, []);
+  useEffect(() => {
+    refetch();
+  }, []);
 
-	const updateDog = (update: UpdateSwitch, dogId: number) => {
-		setDogs(
-			dogs.map((dog) =>
-				dog.id === dogId
-					? { ...dog, isFavorite: update === 'like' ? true : false }
-					: dog
-			)
-		);
-		Requests.patchFavoriteForDog(dogId, update === 'like' ? true : false)
-			.then((res) => {
-				setIsLoading(true);
-				if (!res.ok) {
-					setDogs(dogs);
-				}
-			})
-			.finally(() => {
-				setIsLoading(false);
-			});
-	};
+  const updateDog = (update: UpdateSwitch, dogId: number) => {
+    setDogs(
+      dogs.map((dog) =>
+        dog.id === dogId
+          ? { ...dog, isFavorite: update === "like" ? true : false }
+          : dog
+      )
+    );
+    Requests.patchFavoriteForDog(dogId, update === "like" ? true : false)
+      .then((res) => {
+        setIsLoading(true);
+        if (!res.ok) {
+          setDogs(dogs);
 
-	const addDog = (newDog: Dog) => {
-		setDogs([...dogs, newDog]);
-		Requests.postDog(newDog)
-			.then((res) => {
-				setIsLoading(true);
-				if (!res.ok) {
-					setDogs(dogs);
-				}
-			})
-			.finally(() => {
-				setIsLoading(false);
-			});
-	};
+          setIsLoading(false);
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
-	const deleteDog = (dogId: number) => {
-		setDogs(dogs.filter((dog) => dog.id !== dogId));
-		Requests.deleteDogRequest(dogId)
-			.then((res) => {
-				setIsLoading(true);
-				if (!res.ok) {
-					setDogs(dogs);
-				}
-			})
-			.finally(() => {
-				setIsLoading(false);
-			});
-	};
+  const addDog = (newDog: Omit<Dog, "id">) => {
+    setIsLoading(true);
+    Requests.postDog(newDog)
+      .then((res) => {
+        if (!res.ok) {
+          setDogs(dogs);
+          toast("could not add dog, dog has been removed");
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+        toast("Dog Created");
+      });
 
-	return (
-		<DogContext.Provider
-			value={{
-				dogs,
-				isLoading,
-				updateFilter,
-				updateDog,
-				addDog,
-				deleteDog,
-				dogFilter
-			}}>
-			{children}
-		</DogContext.Provider>
-	);
+    refetch();
+  };
+
+  const deleteDog = (dogId: number) => {
+    setDogs(dogs.filter((dog) => dog.id !== dogId));
+    setIsLoading(true);
+    Requests.deleteDogRequest(dogId)
+      .then((res) => {
+        if (!res.ok) {
+          setDogs(dogs);
+          setIsLoading(false);
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  return (
+    <DogContext.Provider
+      value={{
+        dogs,
+        isLoading,
+        dogTab,
+        updateTab,
+        updateDog,
+        addDog,
+        deleteDog,
+      }}
+    >
+      {children}
+    </DogContext.Provider>
+  );
 };
 
 export const useDogs = () => useContext(DogContext);

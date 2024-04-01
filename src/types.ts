@@ -8,6 +8,6 @@ export const dogSchema = z.object({
   isFavorite: z.boolean(),
 });
 
-export type DogFilter = "liked" | "disliked" | "create" | "all";
+export type DogTab = "liked" | "disliked" | "create" | "all";
 
 export type Dog = z.infer<typeof dogSchema>;

@@ -1,122 +1,143 @@
 {
   "dogs": [
     {
-      "name": "Tanya",
-      "image": "/assets/chihuahua.avif",
-      "description": "navigating Frozen Gender Fantastic Ytterbium Rubber solid",
+      "name": "Mireille",
+      "image": "/assets/boxer.png",
+      "description": "bypass Reactive since South Internal",
       "isFavorite": false,
+      "id": 0
+    },
+    {
+      "name": "Brandon",
+      "image": "/assets/corgi.png",
+      "description": "tesla save bandwidth Buckinghamshire initiatives female Sedan",
+      "isFavorite": false,
+      "id": 1
+    },
+    {
+      "name": "Orion",
+      "image": "/assets/corgi.png",
+      "description": "Northeast optimizing Response Tuna Gasoline",
+      "isFavorite": true,
+      "id": 2
+    },
+    {
+      "name": "Kirk",
+      "image": "/assets/boxer.png",
+      "description": "Electric coulomb TLS blue consolidate motivating Assistant Integration",
+      "isFavorite": true,
       "id": 3
     },
     {
-      "name": "Shawn",
-      "image": "/assets/blue-heeler.png",
-      "description": "initiative redundant Andorra North helplessly",
+      "name": "Toby",
+      "image": "/assets/corgi.png",
+      "description": "Adventure initiatives aha blur Iridium Facilitator Northeast neutral",
       "isFavorite": false,
       "id": 4
     },
     {
-      "name": "Wava",
-      "image": "/assets/chihuahua.avif",
-      "description": "Account capacitor female withdrawal Islands",
+      "name": "Remington",
+      "image": "/assets/blue-heeler.png",
+      "description": "lands Chile Tasty especially transition monetize Tesla",
       "isFavorite": false,
       "id": 5
     },
     {
-      "name": "Rosalinda",
-      "image": "/assets/chihuahua.avif",
-      "description": "Grocery Dollar Carbon Gasoline Steel male Ball",
-      "isFavorite": true,
+      "name": "Luis",
+      "image": "/assets/dalmation.png",
+      "description": "Diesel Music for Vatu violet",
+      "isFavorite": false,
       "id": 6
     },
     {
-      "name": "Louie",
+      "name": "Margarita",
       "image": "/assets/dalmation.png",
-      "description": "azure Coupe Investment pixel EXE target Helium Bespoke",
-      "isFavorite": true,
+      "description": "cream arrogantly quantify Liechtenstein Northwest",
+      "isFavorite": false,
       "id": 7
     },
     {
-      "name": "Christy",
-      "image": "/assets/dalmation.png",
-      "description": "Loan definition Bike TLS Hybrid",
+      "name": "Eliseo",
+      "image": "/assets/boxer.png",
+      "description": "Kentucky auxiliary pixel Oriental Granite Ethiopia female",
       "isFavorite": true,
       "id": 8
     },
     {
-      "name": "Brandt",
-      "image": "/assets/chihuahua.avif",
-      "description": "New hastily Rubber concept Qatar",
-      "isFavorite": true,
+      "name": "Pauline",
+      "image": "/assets/boxer.png",
+      "description": "interactive homogeneous giddy Creative female Jaguar Gasoline Credit",
+      "isFavorite": false,
       "id": 9
     },
     {
-      "name": "Humberto",
-      "image": "/assets/boxer.png",
-      "description": "moderator Manager Metal quantifying compressing",
+      "name": "Jayme",
+      "image": "/assets/cowardly.png",
+      "description": "Southeast Convertible HDD withdrawal Road",
       "isFavorite": true,
       "id": 10
     },
     {
-      "name": "Lilian",
-      "image": "/assets/boxer.png",
-      "description": "SMS purple model Customer array which Eritrea",
-      "isFavorite": false,
+      "name": "Mary",
+      "image": "/assets/blue-heeler.png",
+      "description": "gadzooks Hertfordshire Hybrid South silver portal Factors sympathetically",
+      "isFavorite": true,
       "id": 11
     },
     {
-      "name": "Mina",
-      "image": "/assets/boxer.png",
-      "description": "SUV elaborate further Chips wetly",
-      "isFavorite": false,
+      "name": "Blanche",
+      "image": "/assets/chihuahua.avif",
+      "description": "sodalitas online 6th Metal navigating Expanded Intuitive in",
+      "isFavorite": true,
       "id": 12
     },
     {
-      "name": "Efren",
-      "image": "/assets/corgi.png",
-      "description": "Gasoline Southeast Street Volkswagen though South Industrial brr",
+      "name": "Jerad",
+      "image": "/assets/cowardly.png",
+      "description": "deposit Antrim Molybdenum invoice Architect Music Home",
       "isFavorite": true,
       "id": 13
     },
     {
-      "name": "Astrid",
-      "image": "/assets/boxer.png",
-      "description": "Southeast withdrawal despite Integrated ivory Mouse posh Car",
-      "isFavorite": true,
+      "name": "Amaya",
+      "image": "/assets/blue-heeler.png",
+      "description": "Hybrid ohm driver Steel Principal SMS till Oklahoma",
+      "isFavorite": false,
       "id": 14
     },
     {
-      "name": "Kyleigh",
-      "image": "/assets/cowardly.png",
-      "description": "Northeast Lake Southwest Algerian West Jaguar callide",
-      "isFavorite": true,
+      "name": "Arno",
+      "image": "/assets/chihuahua.avif",
+      "description": "Van SAS solid Recycled empower",
+      "isFavorite": false,
       "id": 15
     },
     {
-      "name": "Rebeca",
-      "image": "/assets/chihuahua.avif",
-      "description": "Wagon reign Mandatory Administrator Pickup",
+      "name": "Camden",
+      "image": "/assets/corgi.png",
+      "description": "deposit sticky synthesize Avenue Home abaft Northwest",
       "isFavorite": true,
       "id": 16
     },
     {
-      "name": "Ambrose",
-      "image": "/assets/chihuahua.avif",
-      "description": "capacitor spokeswoman Northeast timeline streamline Hampshire surprisingly",
+      "name": "Marie",
+      "image": "/assets/corgi.png",
+      "description": "XML Regional Roob eyeballs tan",
       "isFavorite": true,
       "id": 17
     },
     {
-      "name": "Annabelle",
-      "image": "/assets/corgi.png",
-      "description": "backing Hat foreground efficient furthermore Trans Chile",
-      "isFavorite": false,
+      "name": "Raegan",
+      "image": "/assets/cowardly.png",
+      "description": "Iceland protocol Outdoors among Bicycle now Devon seldom",
+      "isFavorite": true,
       "id": 18
     },
     {
-      "name": "Jermain",
-      "image": "/assets/cowardly.png",
-      "description": "ciminatio blockchains blue Operations Recumbent",
-      "isFavorite": false,
+      "name": "Heidi",
+      "image": "/assets/corgi.png",
+      "description": "monumental Algerian luggage Maxwell Tricycle",
+      "isFavorite": true,
       "id": 19
     }
   ]
