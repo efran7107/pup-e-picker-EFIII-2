@@ -28,8 +28,8 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [dogTab, setDogTab] = useState<DogTab>("all");
 
-  const updateTab = (filter: DogTab) => {
-    if (filter !== dogTab) setDogTab(filter);
+  const updateTab = (tab: DogTab) => {
+    if (tab !== dogTab) setDogTab(tab);
     else setDogTab("all");
   };
 
@@ -80,9 +80,8 @@ export const DogProvider = ({ children }: { children: ReactNode }) => {
       .finally(() => {
         setIsLoading(false);
         toast("Dog Created");
+        refetch();
       });
-
-    refetch();
   };
 
   const deleteDog = (dogId: number) => {

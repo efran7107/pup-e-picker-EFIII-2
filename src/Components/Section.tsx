@@ -18,9 +18,7 @@ export const Section = ({
         <div className="selectors">
           {/* This should display the favorited count */}
           <div
-            className={`selector ${
-              !dogTab ? "" : dogTab === "liked" ? "active" : ""
-            }`}
+            className={`selector ${dogTab === "liked" ? "active" : ""}`}
             onClick={() => {
               updateTab("liked");
               alert("click favorited");
@@ -32,9 +30,7 @@ export const Section = ({
 
           {/* This should display the unfavorited count */}
           <div
-            className={`selector ${
-              !dogTab ? "" : dogTab === "disliked" ? "active" : ""
-            }`}
+            className={`selector ${dogTab === "disliked" ? "active" : ""}`}
             onClick={() => {
               updateTab("disliked");
               alert("click unfavorited");
@@ -44,9 +40,7 @@ export const Section = ({
             {dogs.filter((dogs) => dogs.isFavorite === false).length} )
           </div>
           <div
-            className={`selector ${
-              !dogTab ? "" : dogTab === "create" ? "active" : ""
-            }`}
+            className={`selector ${dogTab === "create" ? "active" : ""}`}
             onClick={() => {
               updateTab("create");
               alert("click create dog");
